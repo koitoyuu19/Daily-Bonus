@@ -31,10 +31,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set timezone
-        run: sudo timedatectl set-timezone 'Asia/Shanghai'
+        run: tzutil /s "China Standard Time"
 
       - name: Echo current time
-        run: timedatectl
+        run: date
 
       - name: Set up Python 3.8
         uses: actions/setup-python@v5
@@ -48,4 +48,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Check-in
-        run: python ./message.py
+        run: python .\message.py
