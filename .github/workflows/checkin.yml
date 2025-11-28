@@ -29,14 +29,12 @@ jobs:
       HTTP_PROXY: ${{ secrets.PROXY_URL }}
       HTTPS_PROXY: ${{ secrets.PROXY_URL }}
       ALL_PROXY: ${{ secrets.PROXY_URL }}
-      GIT_HTTP_PROXY_AUTHMETHOD: basic
 
     steps:
       - name: Configure Git proxy
         run: |
           git config --global http.proxy ${{ secrets.PROXY_URL }}
           git config --global https.proxy ${{ secrets.PROXY_URL }}
-          git config --global http.sslVerify false
     
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -60,6 +58,7 @@ jobs:
 
       - name: Check-in
         run: python .\message.py
+
 
 
 
