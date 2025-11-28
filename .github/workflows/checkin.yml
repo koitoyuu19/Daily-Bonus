@@ -25,6 +25,9 @@ jobs:
       PICA_PASSWORD: ${{ secrets.PICA_PASSWORD }}
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
       TG_USER_ID: ${{ secrets.TG_USER_ID }}
+      HTTP_PROXY: ${{ secrets.PROXY_URL }}
+      HTTPS_PROXY: ${{ secrets.PROXY_URL }}
+      ALL_PROXY: ${{ secrets.PROXY_URL }}
 
     steps:
       - name: Checkout repo
@@ -49,3 +52,4 @@ jobs:
 
       - name: Check-in
         run: python .\message.py
+
