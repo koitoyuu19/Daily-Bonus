@@ -6,6 +6,7 @@ on:
       - master
   schedule:
     - cron: '30 23 * * *'
+  workflow_dispatch:
 
 jobs:
   checkin:
@@ -59,6 +60,7 @@ jobs:
 
       - name: Check-in
         run: python .\message.py
+
 
 
 
