@@ -47,12 +47,12 @@ jobs:
       - name: Echo current time
         run: date
 
-      - name: Use system Python
-        run: |
-          # 直接使用系统 Python，跳过 setup-python
-          python --version
-          pip --version
-
+      - name: Set up Python 3.8 (using v4)
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.8'
+          architecture: 'x64'
+          
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -60,6 +60,7 @@ jobs:
 
       - name: Check-in
         run: python .\message.py
+
 
 
 
