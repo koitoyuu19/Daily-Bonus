@@ -1,0 +1,18 @@
+name: Force Reboot Machine
+
+on: 
+  workflow_dispatch: # 允许你手动点击 "Run workflow" 按钮触发
+
+jobs:
+  reboot:
+    runs-on: self-hosted
+    steps:
+      - name: Execute Force Reboot
+        shell: pwsh
+        run: |
+          # /r: 重启
+          # /f: 强制关闭所有应用程序（防止远程软件卡死导致重启失败）
+          # /t 10: 10秒后执行（给 Runner 留出时间同步状态到 GitHub）
+          shutdown /r /f /t 10 /c "Restarting to recover remote access"
+          
+          echo "Reboot command issued. The machine should restart in 10 seconds."
